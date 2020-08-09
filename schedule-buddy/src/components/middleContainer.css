@@ -1,0 +1,80 @@
+.middle-container{
+    width: 95vw;
+    height: 70vh;
+    justify-content: space-around;
+    padding: 20px;
+  
+    position: absolute;
+    left: 4vw;
+    top: 16vh;
+  
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  
+  .image{
+    align-self: center;
+    justify-self: center;
+  }
+  
+  .middle-text{
+    font-family: 'Poligon', sans-serif;
+    text-align: center;
+    align-self: center;
+    right: 15%;
+  
+  }
+  
+  .head{
+    /*font-size: 2.5vw;*/
+    font-size: 5.5vmin;
+    line-height: 3.3vmax;
+    padding-top: 20px;
+    padding-bottom: 1.7vmin;
+  }
+  
+  .second{
+    font-size: 3.3vmin;
+    line-height: 2.3vmax;
+    padding-bottom: 1.8vmin;
+  }
+  
+  .get-started-button{
+    color: #FFFFFF;
+    background-color: #4485E7;
+    font-family: 'Poligon-Light', sans-serif;
+    font-weight: bold;
+    font-size: 2vw;
+    line-height: 2.05vh;
+    padding: 10px;
+    text-align: center;
+    width: 15vw;
+    height: 6.5vh;
+    border: 2px solid #4485E7;
+    border-radius: 5px;
+  
+    position: relative;
+    right: -15.25vw;
+  }
+  
+  
+  @media (max-width: 547px) {
+     .get-started-button{
+      left: 34vw;
+     }
+   }
+  
+   @media (max-width: 350px) {
+      .get-started-button{
+       line-height: 1.5vh;
+       font-size: 2.5vw;
+      }
+    }
+  
+  .bottom-text{
+    font-size: 2.7vmin;
+    line-height: 1.9vmax;
+    padding-top: 1.8vmin;
+    color: #828282;
+  }
