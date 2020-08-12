@@ -1,17 +1,26 @@
 .footer{
-    display: flex;
-    font-family: 'Poligon', sans-serif;
-    font-size: 2.5vmin;
-    line-height: 1vmax;
-    vertical-align: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #4485E7;
-    color: #FFF;
-  
-    position: absolute;
-    width: 100vw;
-    height: 6vh;
-    bottom: 0;
-  }
-  
+  display: flex;
+  font-family: 'Poligon', sans-serif;
+  font-size: 2.5vmin;
+  line-height: 1vmax;
+  vertical-align: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #4485E7;
+  color: #FFF;
+
+  position: absolute;
+  width: 100vw;
+  height: 6vh;
+  bottom: 0;
+}
+
+.left-side{
+  margin-left: 4vw;
+  margin-top: 0.2vw;
+}
+
+.right-side{
+  margin-right: 4vw;
+  margin-top: 0.2vw;
+}

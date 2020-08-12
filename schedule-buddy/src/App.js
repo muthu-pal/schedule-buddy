@@ -16,15 +16,15 @@ function App() {
   return (
     <div className="App">
       
-      <Container>
-        <Row>
+      {/* <Container>
+        <Row> */}
           <MyHeader />
-        </Row>
-        <Row>
+        {/* </Row>
+        <Row> */}
         <MiddleContainer />
-        </Row>
+        {/* </Row> */}
         <MyFooter />
-      </Container>
+      {/* </Container> */}
 
 
 
