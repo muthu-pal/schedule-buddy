@@ -11,16 +11,16 @@ const DropdownNav = (props) => {
       <p>List Based</p>
       <Nav vertical className="ml-auto">
         <NavItem>
-        <NavLink href="/">Home</NavLink>
+        <NavLink href="/"><h3 style={{fontFamily: 'Poligon', fontSize: '18px'}}>Home</h3></NavLink>
         </NavItem>
         <NavItem>
-        <NavLink href="/options">Options</NavLink>
+        <NavLink href="/options"><h3 style={{fontFamily: 'Poligon', fontSize: '18px'}}>Options</h3></NavLink>
         </NavItem>
         <NavItem>
-        <NavLink href="/searchbyclass">Search By Class</NavLink>
+        <NavLink href="/searchbyclass"><h3 style={{fontFamily: 'Poligon', fontSize: '18px'}}>Search by Class</h3></NavLink>
         </NavItem>
         <NavItem>
-        <NavLink href="/searchbyyear">Search By Year</NavLink>
+        <NavLink href="/searchbyyear"><h3 style={{fontFamily: 'Poligon', fontSize: '18px'}}>Search by Year</h3></NavLink>
         </NavItem>
       </Nav>
       
