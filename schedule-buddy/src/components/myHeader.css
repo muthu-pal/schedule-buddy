@@ -107,3 +107,14 @@
   left: 27vw;
   top: 30vh;
 }
+
+.dropdown-nav{
+  color: #FFFFFF;
+  /* background-color: #4485E7; */
+  display: inline-block;
+  font-family: 'Poligon-Light', sans-serif;
+  font-weight: bold;
+  position: absolute;
+  left: 58px;
+  top: 54px;
+}
