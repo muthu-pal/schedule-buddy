@@ -110,11 +110,11 @@
 
 .dropdown-nav{
   color: #FFFFFF;
-  /* background-color: #4485E7; */
-  display: inline-block;
   font-family: 'Poligon-Light', sans-serif;
   font-weight: bold;
   position: absolute;
-  left: 58px;
-  top: 54px;
+  left: 25px;
+
+  z-index: 10;
+  text-align: left;
 }
