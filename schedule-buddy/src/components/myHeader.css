@@ -107,3 +107,14 @@
   left: 27vw;
   top: 30vh;
 }
+
+.dropdown-nav{
+  color: #FFFFFF;
+  font-family: 'Poligon-Light', sans-serif;
+  font-weight: bold;
+  position: absolute;
+  left: 25px;
+
+  z-index: 10;
+  text-align: left;
+}

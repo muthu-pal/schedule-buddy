@@ -8,7 +8,7 @@ import OptionsPage from './components/OptionsPage.js';
 import SearchByClass from './components/SearchByClass.js';
 import SearchByYear from './components/SearchByYear.js';
 import Error from './components/Error.js';
-import Navigation from './components/Navigation.js';
+
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
     <div>
       
       
-          <Navigation />
+          
             <Switch>
              <Route path="/" component={Home} exact/>
              <Route path="/options" component={OptionsPage}/>
