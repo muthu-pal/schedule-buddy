@@ -65,7 +65,8 @@ export default class Form extends React.Component {
                 <SelectSearch
                     name="rating"
                     placeholder="rating"
-                    onSelect = {e => this.setState(e.target.value)}
+                    
+                    
                     options={[
                     { value: '1', name: '1' },
                     { value: '2', name: '2' },
@@ -78,7 +79,9 @@ export default class Form extends React.Component {
                     { value: '9', name: '9' },
                     { value: '10', name: '10' }
                     ]}
-                    search          
+                    search  
+                    value = ""  
+                    onSelect = {e => this.handleChange(e.props.rating)}     
                 />
                 <br />
                 <SelectSearch
