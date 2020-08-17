@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import SelectSearch from 'react-select-search';
+import './upload.css'
 
 export default class Form extends React.Component {
 
@@ -17,7 +18,7 @@ export default class Form extends React.Component {
             classes: "",
             classnames: ""
         };
-        //this.change = this.change.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange = e => {
@@ -41,55 +42,61 @@ export default class Form extends React.Component {
                     value = {this.state.description}
                     onChange = {e => this.handleChange(e)}
                 />
+                <br />
+                
+                <SelectSearch
+                    name="year"
+                    placeholder="year"
+                    value = {this.state.year}
+                     
+                    options={[
+                    { value: '1', name: 'First Year' },
+                    { value: '2', name: 'Second year' },
+                    { value: '3', name: 'Third Year' },
+                    { value: '4', name: 'Fourth Year' },
+                    { value: '5', name: 'Other' }
+                    ]}
+                    search 
+                    onSelect = {e => this.handleChange(e)}
+                            
+                />
+
+                <br />
+                <SelectSearch
+                    name="rating"
+                    placeholder="rating"
+                    onSelect = {e => this.setState(e.target.value)}
+                    options={[
+                    { value: '1', name: '1' },
+                    { value: '2', name: '2' },
+                    { value: '3', name: '3' },
+                    { value: '4', name: '4' },
+                    { value: '5', name: '5' },
+                    { value: '6', name: '6' },
+                    { value: '7', name: '7' },
+                    { value: '8', name: '8' },
+                    { value: '9', name: '9' },
+                    { value: '10', name: '10' }
+                    ]}
+                    search          
+                />
+                <br />
+                <SelectSearch
+                    placeholder="quarter"
+                    options={[
+                    { value: 'Fall', name: 'Fall' },
+                    { value: 'Winter', name: 'Winter' },
+                    { value: 'Spring', name: 'Spring' },
+                    { value: 'Summer', name: 'Summer' },
+                    ]}
+                    search          
+                />
             </form>
         );
     }
     
-    yearSearch = () => (
-        <SelectSearch
-            placeholder="year"
-            options={[
-            { value: '1', name: 'First Year' },
-            { value: '2', name: 'Second year' },
-            { value: '3', name: 'Third Year' },
-            { value: '4', name: 'Fourth Year' },
-            { value: '5', name: 'Other' }
-            ]}
-            search          
-        />
-    );
-
-    ratingSearch = () => (
-        <SelectSearch
-            placeholder="rating"
-            options={[
-            { value: '1', name: '1' },
-            { value: '2', name: '2' },
-            { value: '3', name: '3' },
-            { value: '4', name: '4' },
-            { value: '5', name: '5' },
-            { value: '6', name: '6' },
-            { value: '7', name: '7' },
-            { value: '8', name: '8' },
-            { value: '9', name: '9' },
-            { value: '10', name: '10' }
-            ]}
-            search          
-        />
-    );
-
-    quarterSearch = () => (
-        <SelectSearch
-            placeholder="quarter"
-            options={[
-            { value: 'Fall', name: 'Fall' },
-            { value: 'Winter', name: 'Winter' },
-            { value: 'Spring', name: 'Spring' },
-            { value: 'Summer', name: 'Summer' },
-            ]}
-            search          
-        />
-    );
+   
+    
 
     /*
     majorSearch = () => (
