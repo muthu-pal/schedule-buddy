@@ -8,6 +8,7 @@ import OptionsPage from './components/OptionsPage.js';
 import SearchByClass from './components/SearchByClass.js';
 import SearchByYear from './components/SearchByYear.js';
 import Error from './components/Error.js';
+import MySearch from './components/MySearch.js';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
              <Route path="/options" component={OptionsPage}/>
              <Route path="/searchbyclass" component={SearchByClass}/>
              <Route path="/searchbyyear" component={SearchByYear}/>
+             <Route path="/mysearch" component={MySearch}/>
             <Route component={Error}/>
            </Switch>
       

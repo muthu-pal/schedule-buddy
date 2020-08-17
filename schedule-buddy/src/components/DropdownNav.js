@@ -22,6 +22,9 @@ const DropdownNav = (props) => {
         <NavItem>
         <NavLink href="/searchbyyear"><h3 style={{fontFamily: 'Poligon', fontSize: '18px'}}>Search by Year</h3></NavLink>
         </NavItem>
+        <NavItem>
+        <NavLink href="/mysearch"><h3 style={{fontFamily: 'Poligon', fontSize: '18px'}}>Form</h3></NavLink>
+        </NavItem>
       </Nav>
       
     </div>
