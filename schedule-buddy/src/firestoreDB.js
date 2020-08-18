@@ -11,29 +11,31 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig); 
 const db = firebase.firestore();
 
-//_classes include -> comment, name, rating, type fields 
-function uploadSchedule(_year, _rating, _quarter, _major, _description, _classes) {
+//function to upload schedule 
+function uploadSchedule(_quarter, _year, _major, _classes, _rating, _description,) {
     _classnames = []
     _classes.forEach(element => _classnames.push(element.name))
 
     db.collection('schedules').add({
-        year: _year,
-        rating: _rating,
         quarter: _quarter,
+        year: _year,
         major: _major,
-        description: _description,
         classes: _classes, 
-        classnames: _classnames
+        classnames: _classnames,
+        rating: _rating,
+        description: _description,
     })
 }
 
 //class object 
-function createClass(_comment, _name, _rating, _type) {
+function createClass(_name, _type, _difficultyRating, _interestingRating, _comment,) {
     return {
-        comment: _comment,
         name: _name.trim(),
-        rating: _rating,
-        type: _type
+        type: _type,
+        difficultyRating: _difficultyRating,
+        interestingRating: _interestingRating, 
+        comment: _comment
+
     }
 }
 
@@ -58,9 +60,9 @@ function hasSubArray(master, sub) {
     return sub.every(v => master.indexOf(v.trim()) != -1)
 }
 
-//get recommended classes based on quarter/year and major 
-async function getRecommendedClasses(quarter, year, major) {
-    dbRef = db.collection('schedules').where("quarter", "==", quarter).where("year", "==", year).where("major", "==", major)
+//get recommended classes based on year and major 
+async function getRecommendedClasses(year, major) {
+    dbRef = db.collection('schedules').where("year", "==", year).where("major", "==", major)
     try {
         var frequencyCount = new Map();
         var querySnapshot = await dbRef.get();
@@ -109,9 +111,48 @@ async function getClassInformation(className) {
     } 
 }
 
-// //get a list of easy / interesting GE's 
-// function getGEs() {
-//     dbRef = db.collection('GE');
+//get a list of easy GE's 
+async function getEasyGEs() {
+    dbRef = db.collection('schedules');
+    try {
+        var querySnapshot = await dbRef.get();
+        var difficultyCount = new Map();
+        querySnapshot.forEach(doc => {
+            doc.data().classes.forEach(cls => {
+               if (cls.type == 'major') {
+                if (cls.name in difficultyCount) {
+                    difficultyCount.get(cls.name).push(cls.rating); 
+                } else {
+                    classDifficultyRatings = [cls.rating]; 
+                    difficultyCount.set(cls.name, classDifficultyRatings); 
+                }    
+            }});
+        }); 
+
+        var averageRating = new Map(); 
+        for(let [key,value] of difficultyCount) {
+            let average = (array) => array.reduce((a, b) => a + b) / array.length; //this is a function
+            averageRating.set(key, average(value)); 
+        }
+
+        const sortedRating = new Map([...averageRating.entries()].sort((a, b) => b[1] - a[1]));
+        var finalResult = new Map(); 
+        var count = 0; 
+        for(let [key,value] of sortedRating) {
+            finalResult.set(key, value); 
+            count++;
+            if(count == 10) break; 
+        }
+        return finalResult;
+
+    } catch (err) {
+        console.log('Error getting documents', err);
+    } 
+}
+
+// //get a list of interesting GE's 
+// function getInterestingGEs() {
+//     dbRef = db.collection('schedules');
 //     try {
 //         var querySnapshot = await dbRef.get();
 //         result = []
