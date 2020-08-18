@@ -1,6 +1,6 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import SelectSearch from 'react-select-search';
+
 import './upload.css'
 
 export default class Form extends React.Component {
@@ -18,7 +18,6 @@ export default class Form extends React.Component {
             classes: "",
             classnames: ""
         };
-        this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange = e => {
@@ -27,7 +26,14 @@ export default class Form extends React.Component {
         });
     };
 
+    selectChange = (val, name) => {
+        this.setState({
+            [name]: val
+        });
+    }
+
     render() {
+        console.log(this.state);
         return(
             <form>
                 <input
@@ -56,8 +62,10 @@ export default class Form extends React.Component {
                     { value: '4', name: 'Fourth Year' },
                     { value: '5', name: 'Other' }
                     ]}
+
                     search 
-                    onSelect = {e => this.handleChange(e)}
+
+                    onChange = {val => this.selectChange(val, "year")}
                             
                 />
 
@@ -65,8 +73,7 @@ export default class Form extends React.Component {
                 <SelectSearch
                     name="rating"
                     placeholder="rating"
-                    
-                    
+
                     options={[
                     { value: '1', name: '1' },
                     { value: '2', name: '2' },
@@ -80,8 +87,8 @@ export default class Form extends React.Component {
                     { value: '10', name: '10' }
                     ]}
                     search  
-                    value = ""  
-                    onSelect = {e => this.handleChange(e.props.rating)}     
+                    value = {this.state.rating}  
+                    onChange={val => this.selectChange(val, "rating")}     
                 />
                 <br />
                 <SelectSearch
@@ -92,7 +99,9 @@ export default class Form extends React.Component {
                     { value: 'Spring', name: 'Spring' },
                     { value: 'Summer', name: 'Summer' },
                     ]}
-                    search          
+                    search
+                    value={this.state.quarter}
+                    onChange={val => this.selectChange(val, "quarter")}
                 />
             </form>
         );

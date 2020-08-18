@@ -14,28 +14,20 @@ import MySearch from './components/MySearch.js';
 function App() {
   return (
     <div className="App">
-    <BrowserRouter>
-    <div>
-      
-      
-          
-            <Switch>
-             <Route path="/" component={Home} exact/>
-             <Route path="/options" component={OptionsPage}/>
-             <Route path="/searchbyclass" component={SearchByClass}/>
-             <Route path="/searchbyyear" component={SearchByYear}/>
-             <Route path="/mysearch" component={MySearch}/>
-            <Route component={Error}/>
-           </Switch>
-      
-      
+      <BrowserRouter>
+        <div>
 
+          <Switch>
+            <Route path="/" component={Home} exact />
+            <Route path="/options" component={OptionsPage} />
+            <Route path="/searchbyclass" component={SearchByClass} />
+            <Route path="/searchbyyear" component={SearchByYear} />
+            <Route path="/mysearch" component={MySearch} />
+            <Route component={Error} />
+          </Switch>
 
-
-
-
-    </div>
-    </BrowserRouter>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
