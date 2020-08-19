@@ -119,11 +119,11 @@ async function getEasyGEs() {
         var difficultyCount = new Map();
         querySnapshot.forEach(doc => {
             doc.data().classes.forEach(cls => {
-               if (cls.type == 'major') {
+               if (cls.type == 'GE') {
                 if (cls.name in difficultyCount) {
-                    difficultyCount.get(cls.name).push(cls.rating); 
+                    difficultyCount.get(cls.name).push(cls.difficultyRating); 
                 } else {
-                    classDifficultyRatings = [cls.rating]; 
+                    classDifficultyRatings = [cls.difficultyRating]; 
                     difficultyCount.set(cls.name, classDifficultyRatings); 
                 }    
             }});
@@ -150,19 +150,41 @@ async function getEasyGEs() {
     } 
 }
 
-// //get a list of interesting GE's 
-// function getInterestingGEs() {
-//     dbRef = db.collection('schedules');
-//     try {
-//         var querySnapshot = await dbRef.get();
-//         result = []
-//         querySnapshot.forEach(doc => {
-//             if (hasSubArray(doc.data().classnames, classnames)) {
-//                 result.push(doc.data()); 
-//             } 
-//         });
-//         return result;
-//     } catch (err) {
-//         console.log('Error getting documents', err);
-//     } 
-// }
+//get a list of interesting GE's 
+async function getInterestingGEs() {
+    dbRef = db.collection('schedules');
+    try {
+        var querySnapshot = await dbRef.get();
+        var interestingCount = new Map();
+        querySnapshot.forEach(doc => {
+            doc.data().classes.forEach(cls => {
+               if (cls.type == 'GE') {
+                if (cls.name in interestingCount) {
+                    interestingCount.get(cls.name).push(cls.interestingRating); 
+                } else {
+                    classInterestingRatings = [cls.interestingRating]; 
+                    interestingCount.set(cls.name, classInterestingRatings); 
+                }    
+            }});
+        }); 
+
+        var averageRating = new Map(); 
+        for(let [key,value] of interestingCount) {
+            let average = (array) => array.reduce((a, b) => a + b) / array.length; //this is a function
+            averageRating.set(key, average(value)); 
+        }
+
+        const sortedRating = new Map([...averageRating.entries()].sort((a, b) => b[1] - a[1]));
+        var finalResult = new Map(); 
+        var count = 0; 
+        for(let [key,value] of sortedRating) {
+            finalResult.set(key, value); 
+            count++;
+            if(count == 10) break; 
+        }
+        return finalResult;
+
+    } catch (err) {
+        console.log('Error getting documents', err);
+    } 
+}
