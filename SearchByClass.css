@@ -1,0 +1,64 @@
+/* FOR THE SEARCH PAGE  */
+.form{
+    width: 60vw;
+    height: 30vh;
+    justify-content: center;
+    padding: 10px;
+  
+    position: absolute;
+    left: 20vw;
+    top: 28vh;
+  
+    font-family: 'Poligon', sans-serif;
+    font-size: 3vmin;
+  
+    display: grid;
+    align-items: center;
+    grid-template-rows: repeat(auto-fit, minmax(9vh, 1fr));
+  }
+  
+  .form-row{
+    margin: 1.8vh;
+    width: 30vw;
+  }
+  
+  .year{
+    width: 120px;
+    height: 30px;
+    border: 1.5px solid #828282;
+    font-size: 18px;
+    font-family: 'Poligon', sans-serif;
+    color: #000;
+    background-color: #FFF;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  
+  @media (max-width: 1024px) {
+     .form-row{
+       margin: 1.8vh;
+       width: 50vw;
+     }
+   }
+  
+  .form-row input[type='text']{
+    background-color: #FFFFFF;
+    font-family: 'Poligon', sans-serif;
+    border: 1.25px solid #828282;
+    border-radius: 5px;
+    height: 105%;
+    width: 70%;
+    padding: 7px;
+    font-size: 2vmin;
+  }
+  
+  .caption{
+    font-size: 2vmin;
+    line-height: 1.5vmax;
+    color: #828282;
+    text-align: center;
+    left: 20vw;
+  }
+  
+  
