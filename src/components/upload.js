@@ -1,6 +1,7 @@
 import React from 'react';
 import SelectSearch from 'react-select-search';
-
+import MyHeader from "./myHeader.js"
+import MyFooter from "./myFooter.js"
 import './upload.css'
 
 export default class Form extends React.Component {
@@ -35,75 +36,81 @@ export default class Form extends React.Component {
     render() {
         console.log(this.state);
         return(
-            <form>
-                <input
-                    name = "username"
-                    placeholder = "username"
-                    value = {this.state.username}
-                    onChange = {e => this.handleChange(e)}
-                />
-                <input
-                    name = "description"
-                    placeholder = "description"
-                    value = {this.state.description}
-                    onChange = {e => this.handleChange(e)}
-                />
-                <br />
-                
-                <SelectSearch
-                    name="year"
-                    placeholder="year"
-                    value = {this.state.year}
-                     
-                    options={[
-                    { value: '1', name: 'First Year' },
-                    { value: '2', name: 'Second year' },
-                    { value: '3', name: 'Third Year' },
-                    { value: '4', name: 'Fourth Year' },
-                    { value: '5', name: 'Other' }
-                    ]}
-
-                    search 
-
-                    onChange = {val => this.selectChange(val, "year")}
+            <div>
+                <MyHeader/>
+                <div className = "container">
+                    <form className = "inside">
+                        <input className = "input"
+                            name = "username"
+                            placeholder = "username"
+                            value = {this.state.username}
+                            onChange = {e => this.handleChange(e)}
+                        />
+                        <h6><br/></h6>
+                        <input className = "input"
+                            name = "description"
+                            placeholder = "description"
+                            value = {this.state.description}
+                            onChange = {e => this.handleChange(e)}
+                        />
+                        <h6><br/></h6>
+                        <SelectSearch
+                            name="year"
+                            placeholder="year"
+                            value = {this.state.year}
                             
-                />
+                            options={[
+                            { value: '1', name: 'First Year' },
+                            { value: '2', name: 'Second year' },
+                            { value: '3', name: 'Third Year' },
+                            { value: '4', name: 'Fourth Year' },
+                            { value: '5', name: 'Other' }
+                            ]}
 
-                <br />
-                <SelectSearch
-                    name="rating"
-                    placeholder="rating"
+                            search 
 
-                    options={[
-                    { value: '1', name: '1' },
-                    { value: '2', name: '2' },
-                    { value: '3', name: '3' },
-                    { value: '4', name: '4' },
-                    { value: '5', name: '5' },
-                    { value: '6', name: '6' },
-                    { value: '7', name: '7' },
-                    { value: '8', name: '8' },
-                    { value: '9', name: '9' },
-                    { value: '10', name: '10' }
-                    ]}
-                    search  
-                    value = {this.state.rating}  
-                    onChange={val => this.selectChange(val, "rating")}     
-                />
-                <br />
-                <SelectSearch
-                    placeholder="quarter"
-                    options={[
-                    { value: 'Fall', name: 'Fall' },
-                    { value: 'Winter', name: 'Winter' },
-                    { value: 'Spring', name: 'Spring' },
-                    { value: 'Summer', name: 'Summer' },
-                    ]}
-                    search
-                    value={this.state.quarter}
-                    onChange={val => this.selectChange(val, "quarter")}
-                />
-            </form>
+                            onChange = {val => this.selectChange(val, "year")}
+                                    
+                        />
+
+                        <br />
+                        <SelectSearch
+                            name="rating"
+                            placeholder="rating"
+
+                            options={[
+                            { value: '1', name: '1' },
+                            { value: '2', name: '2' },
+                            { value: '3', name: '3' },
+                            { value: '4', name: '4' },
+                            { value: '5', name: '5' },
+                            { value: '6', name: '6' },
+                            { value: '7', name: '7' },
+                            { value: '8', name: '8' },
+                            { value: '9', name: '9' },
+                            { value: '10', name: '10' }
+                            ]}
+                            search  
+                            value = {this.state.rating}  
+                            onChange={val => this.selectChange(val, "rating")}     
+                        />
+                        <br />
+                        <SelectSearch
+                            placeholder="quarter"
+                            options={[
+                            { value: 'Fall', name: 'Fall' },
+                            { value: 'Winter', name: 'Winter' },
+                            { value: 'Spring', name: 'Spring' },
+                            { value: 'Summer', name: 'Summer' },
+                            ]}
+                            search
+                            value={this.state.quarter}
+                            onChange={val => this.selectChange(val, "quarter")}
+                        />
+                    </form>
+                </div>
+                <MyFooter/>
+            </div>
         );
     }
     

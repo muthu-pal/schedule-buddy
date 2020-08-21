@@ -4,8 +4,8 @@
  .select-search {
     width: 300px;
     position: relative;
-    font-family: 'Nunito Sans', sans-serif;
-    box-sizing: border-box;
+    font-family: 'Poligon', sans-serif;
+    box-sizing: border-box; 
 }
 
 .select-search *,
@@ -39,18 +39,19 @@
     display: block;
     height: 36px;
     width: 100%;
-    padding: 0 16px;
+    padding: 0 1vw;
     background: #fff;
-    border: 1px solid transparent;
+    border: 1px solid #828282;
     box-shadow: 0 .0625rem .125rem rgba(0, 0, 0, 0.15);
     border-radius: 3px;
     outline: none;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Poligon', sans-serif;
     font-size: 14px;
+    border-radius: 5px;
     text-align: left;
     text-overflow: ellipsis;
     line-height: 36px;
-    -webkit-appearance: none;
+    -webkit-appearance: none; 
 }
 
 .select-search__input::-webkit-search-decoration,
@@ -97,7 +98,7 @@
     background: #fff;
     border: none;
     outline: none;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Poligon', sans-serif;
     font-size: 14px;
     text-align: left;
     cursor: pointer;
@@ -198,4 +199,29 @@
     max-height: 260px;
     border-top: 1px solid #eee;
     border-radius: 0 0 3px 3px;
+}
+
+.container{
+    width: 30vw;
+    height: 75vh;
+    padding-top: 18vh;
+    align-content: center;
+    /* padding: 5vw; */
+}
+
+.inside{
+    padding: 3vw;
+
+}
+
+.input{
+    font-family: 'Poligon', sans-serif;
+    background-color: #FFFFFF;
+    font-family: 'Poligon', sans-serif;
+    border: 1.25px solid #828282;
+    border-radius: 5px;
+    height: 105%;
+    width: 100%;
+    padding: 7px;
+    font-size: 2vmin;
 }

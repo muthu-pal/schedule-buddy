@@ -14,7 +14,7 @@ function MiddleContainer() {
             <span className="temp"><p>get started</p></span>
     
         </div>
-          <p className="bottom-text">filter by major, search a specific className, or <br /> browse our list of GEs</p>
+          <p className="bottom-text">filter by major, search a specific class, or <br /> browse our list of GEs</p>
         </div>
         </div>
     

@@ -23,7 +23,7 @@ const DropdownNav = (props) => {
         <NavLink href="/searchbyyear"><h3 style={{fontFamily: 'Poligon', fontSize: '18px'}}>Search by Year</h3></NavLink>
         </NavItem>
         <NavItem>
-        <NavLink href="/mysearch"><h3 style={{fontFamily: 'Poligon', fontSize: '18px'}}>Form</h3></NavLink>
+        <NavLink href="/upload"><h3 style={{fontFamily: 'Poligon', fontSize: '18px'}}>Upload</h3></NavLink>
         </NavItem>
       </Nav>
       

@@ -19,9 +19,9 @@ const OptionsPage = () => {
             </div>
             <div className="central-container">
                 <div className="yellow-box">
-                    <p className="top-yellow">I've already decided on a <br /> few classNamees</p>
+                    <p className="top-yellow">I've already decided on a <br /> few classes</p>
                     <div className="yellow-one-top-rectangle">
-                        classNamees: Math 32A, Math 33A
+                        classes: Math 32A, Math 33A
                     </div>
                     <p className="joebruin">joebruin, physics major</p>
                     <div className="yellow-one-bottom-rectangle">
@@ -29,7 +29,7 @@ const OptionsPage = () => {
                         - Math 32A <br />
                         - Math 33A
                     </div>
-                    <p className="bottom-yellow">Enter your classNamees and we'll find <br /> schedules with the same combination</p>
+                    <p className="bottom-yellow">Enter your classes and we'll find <br /> schedules with the same combination</p>
                 </div>
 
                 <div className="yellow-box">
@@ -44,15 +44,15 @@ const OptionsPage = () => {
                         Year: &nbsp;&nbsp; 2nd <br />
                         Major: Computer Science
                     </div>
-                    <p className="bottom-yellow">Select your year and major and <br /> we'll show you the most popular classNamees</p>
+                    <p className="bottom-yellow">Select your year and major and <br /> we'll show you the most popular classes</p>
                 </div>
 
                 <div className="yellow-box">
-                    <p className="top-yellow">I'm looking for fun and <br /> interesting classNamees</p>
+                    <p className="top-yellow">I'm looking for fun and <br /> interesting classes</p>
                     <div className="party">
-                        <img width="230vw" src='./images/partying.svg' align="stretch" alt="People having fun" />
+                        <img width="210vw" src='./images/partying.svg' align="stretch" alt="People having fun" />
                     </div>
-                    <p className="bottom-yellow">Browse classNamees rated the most <br /> interesting by your fellow students!</p>
+                    <p className="bottom-yellow">Browse classes rated the most <br /> interesting by your fellow students!</p>
                 </div>
             </div>
             {/* middle section ends here */}
