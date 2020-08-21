@@ -22,7 +22,7 @@ function App() {
             <Route path="/options" component={OptionsPage} />
             <Route path="/searchbyclass" component={SearchByClass} />
             <Route path="/searchbyyear" component={SearchByYear} />
-            <Route path="/mysearch" component={MySearch} />
+            <Route path="/upload" component={MySearch} />
             <Route component={Error} />
           </Switch>
 
@@ -33,3 +33,4 @@ function App() {
 }
 
 export default App;
+
