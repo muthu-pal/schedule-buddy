@@ -1,10 +1,12 @@
 import React from 'react';
 import SelectSearch from 'react-select-search';
-import MyHeader from "./myHeader.js"
-import MyFooter from "./myFooter.js"
-import './upload.css'
-import * as functions from  '../firestoreDB.js'
-import firebase from "firebase"
+import MyHeader from "./myHeader.js";
+import MyFooter from "./myFooter.js";
+import './upload.css';
+
+import firebase from "firebase";
+import { uploadSchedule } from  '../firestoreDB.js';
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyB-ZOFGWh1RypwbK1I_Tz6Pw0S073k16zU",
@@ -50,8 +52,8 @@ export default class Form extends React.Component {
     }
 
     submitQuarter = () => {
-        functions.uploadSchedule(this.state.quarter, this.state.year,
-        "major", [], this.state.rating, this.state.description, db)
+        uploadSchedule(this.state.quarter, this.state.year, 
+            "major", [], this.state.rating, this.state.description, db);
     }
 
     render() {
@@ -136,8 +138,6 @@ export default class Form extends React.Component {
             </div>
         );
     }
-    
-   
     
 
     /*
