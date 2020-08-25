@@ -3,6 +3,22 @@ import SelectSearch from 'react-select-search';
 import MyHeader from "./myHeader.js"
 import MyFooter from "./myFooter.js"
 import './upload.css'
+import * as functions from  '../firestoreDB.js'
+import firebase from "firebase"
+
+const firebaseConfig = {
+    apiKey: "AIzaSyB-ZOFGWh1RypwbK1I_Tz6Pw0S073k16zU",
+    authDomain: "schedule-buddy-fc6c5.firebaseapp.com",
+    databaseURL: "https://schedule-buddy-fc6c5.firebaseio.com",
+    projectId: "schedule-buddy-fc6c5",
+    storageBucket: "schedule-buddy-fc6c5.appspot.com",
+    messagingSenderId: "701626130578",
+    appId: "1:701626130578:web:c68e333703087b6d1d064b"
+};
+
+firebase.initializeApp(firebaseConfig); 
+const db = firebase.firestore();
+
 
 export default class Form extends React.Component {
 
@@ -31,6 +47,11 @@ export default class Form extends React.Component {
         this.setState({
             [name]: val
         });
+    }
+
+    submitQuarter = () => {
+        functions.uploadSchedule(this.state.quarter, this.state.year,
+        "major", [], this.state.rating, this.state.description, db)
     }
 
     render() {
@@ -107,7 +128,9 @@ export default class Form extends React.Component {
                             value={this.state.quarter}
                             onChange={val => this.selectChange(val, "quarter")}
                         />
+                        <button onClick={this.submitQuarter}> submit </button>
                     </form>
+                    
                 </div>
                 <MyFooter/>
             </div>
