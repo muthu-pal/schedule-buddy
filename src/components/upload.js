@@ -6,6 +6,7 @@ import './upload.css';
 
 import firebase from "firebase";
 import { uploadSchedule } from  '../firestoreDB.js';
+import CreateClass from './createClass.js'
 
 
 const firebaseConfig = {
@@ -21,6 +22,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig); 
 const db = firebase.firestore();
 
+let tempClasses = [];
 
 export default class Form extends React.Component {
 
@@ -34,7 +36,7 @@ export default class Form extends React.Component {
             quarter: "",
             major: "",
             description: "",
-            classes: "",
+            classes: [],
             classnames: ""
         };
     }
@@ -55,6 +57,11 @@ export default class Form extends React.Component {
         uploadSchedule(this.state.quarter, this.state.year, 
             "major", [], this.state.rating, this.state.description, db);
     }
+    // submitClass = () =>{
+    //     this.state.classes.push(
+    //         this.state
+    //     )
+    // }
 
     render() {
         console.log(this.state);
@@ -130,6 +137,13 @@ export default class Form extends React.Component {
                             value={this.state.quarter}
                             onChange={val => this.selectChange(val, "quarter")}
                         />
+                        <br />
+                        {/* <CreateClass />
+                        <button onClick={this.submitQuarter}> submit this class </button>
+                        <CreateClass />
+                        <CreateClass />
+                        <CreateClass />
+                        <CreateClass /> */}
                         <button onClick={this.submitQuarter}> submit </button>
                     </form>
                     
