@@ -7,6 +7,7 @@ import './upload.css';
 import firebase from "firebase";
 import { uploadSchedule } from  '../firestoreDB.js';
 import CreateClass from './createClass.js'
+import {majorNames, class_names} from './classNames.js'
 
 
 const firebaseConfig = {
@@ -52,6 +53,7 @@ export default class Form extends React.Component {
             [name]: val
         });
     }
+
 
     submitQuarter = () => {
         uploadSchedule(this.state.quarter, this.state.year, 
@@ -138,12 +140,31 @@ export default class Form extends React.Component {
                             onChange={val => this.selectChange(val, "quarter")}
                         />
                         <br />
+                        <SelectSearch
+                            placeholder="major"
+                            options={majorNames}
+                            search
+                            value={this.state.major}
+                            onChange={val => this.selectChange(val, "major")}
+                        />
+                        <br />
                         {/* <CreateClass />
                         <button onClick={this.submitQuarter}> submit this class </button>
                         <CreateClass />
                         <CreateClass />
                         <CreateClass />
                         <CreateClass /> */}
+
+
+                        <SelectSearch
+                        name= "className"
+                        placeholder="class name"
+                        options= {class_names}//"classes" should be a .txt file with all the different classes or something like that (ex: COM SCI, MATH, LING)
+                            search     
+                            value = {this.state.classnames}  
+                            onChange={val => this.selectChange(val, "className")}      
+                    />
+                    <br />
                         <button onClick={this.submitQuarter}> submit </button>
                     </form>
                     
@@ -152,33 +173,6 @@ export default class Form extends React.Component {
             </div>
         );
     }
-    
-
-    /*
-    majorSearch = () => (
-        <SelectSearch
-            placeholder="major"
-            options={majors} //"majors" should be a .txt file with all the different majors or something like that
-            search           
-        />
-    );
-
-    classSearch = () => (
-        <SelectSearch
-            placeholder="class"
-            options={class} //"classes" should be a .txt file with all the different classes or something like that (ex: COM SCI, MATH, LING)
-            search           
-        />
-    );
-
-    classNumberSearch = () => (
-        <SelectSearch
-            placeholder="classNumber"
-            options={classNumbers} //"classNumbers" should be a .txt file with all the different classes or something like that (ex: 1, 32A, 111)
-            search           
-        />
-    );
-    */
 }
 
 
