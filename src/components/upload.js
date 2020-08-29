@@ -148,9 +148,9 @@ export default class Form extends React.Component {
                             onChange={val => this.selectChange(val, "major")}
                         />
                         <br />
-                        {/* <CreateClass />
-                        <button onClick={this.submitQuarter}> submit this class </button>
                         <CreateClass />
+                        <button onClick={this.submitQuarter}> submit this class </button>
+                        {/* <CreateClass />
                         <CreateClass />
                         <CreateClass />
                         <CreateClass /> */}
