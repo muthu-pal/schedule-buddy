@@ -1,6 +1,9 @@
 /**
  * Main wrapper
  */
+ *{
+    font-family: 'Poligon', sans-serif;
+ }
  .select-search {
     width: 300px;
     position: relative;
@@ -202,16 +205,19 @@
 }
 
 .container{
+    position: relative;
     width: 30vw;
     height: 75vh;
-    padding-top: 18vh;
+
+    top: 15vh;
     align-content: center;
-    /* padding: 5vw; */
+    
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .inside{
-    padding: 3vw;
-
+    padding: 2vw;
 }
 
 .input{
@@ -222,6 +228,6 @@
     border-radius: 5px;
     height: 105%;
     width: 100%;
-    padding: 7px;
+    padding: 1vh 1vw;
     font-size: 2vmin;
 }
