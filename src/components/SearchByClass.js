@@ -9,7 +9,6 @@ import './myFooter.css'
 import './SearchByClass.css'
 
 
-
 const SearchByClass = () => {
     return (
         <div>
@@ -27,9 +26,7 @@ const SearchByClass = () => {
                     <input id='classes-name' name='classes-name' type='text'/>
                     </div>
                     <p class="caption">* please use official subject names and separate <br /> &ensp;&ensp;&ensp;classes by commas, e.g. "com sci 111, com sci 180"</p>
-                    <div class="submit-button">
-                    <p>submit</p>
-                    </div>
+                    <button onClick>submit</button>
                 </div>
             {/* middle section ends here */}
             <MyFooter />

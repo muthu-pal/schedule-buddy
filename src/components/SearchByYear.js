@@ -8,10 +8,33 @@ import './myHeader.css'
 import './myFooter.css'
 import './SearchByClass.css'
 
+import db from '../databaseConnection'; 
+import { getRecommendedClasses} from '../firestoreFunctions'; 
 
 
-const SearchByYear = () => {
-    return (
+class SearchByYear extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            major: "",
+            year: "",
+        }
+    }
+
+    handleRequest = () => {
+        getRecommendedClasses(this.state.year, this.state.major, db).then(console.log); 
+    }
+
+    myChangeHandler = (event) => {
+        let nam = event.target.name;
+        let val = event.target.value;
+        this.setState({[nam]: val});
+    }
+
+    render() {
+        return (
         <div>
           
           
@@ -20,11 +43,11 @@ const SearchByYear = () => {
                             <div class="form">
                     <div class='form-row'>
                     <label for='major'>major: &ensp;&thinsp;&thinsp;&thinsp;&thinsp;</label>
-                    <input id='major-name' name='major-name' type='text'/>
+                    <input id='major' name='major' type='text' onChange={this.myChangeHandler}/>
                     </div>
                     <div class='year-dropdown'>
                     <label for='year'>&ensp;year:&ensp;&ensp;&ensp;&ensp;&thinsp;</label>
-                    <select class='year' name='year'>
+                    <select class='year' name='year' onChange={this.myChangeHandler}>
                         <option value='empty'></option>
                         <option value='1st'>1st</option>
                         <option value='2nd'>2nd</option>
@@ -34,20 +57,14 @@ const SearchByYear = () => {
                     </select>
                     </div>
                     <div class="submit-button">
-                    <p>submit</p>
+                    <button onClick={this.handleRequest} > submit </button>
                     </div>
                 </div>
              {/* middle section ends here */}
             <MyFooter />
-          
-    
-    
-    
-    
-    
-    
         </div>
       );
+    }
 }
 
 export default SearchByYear

@@ -4,24 +4,11 @@ import MyHeader from "./myHeader.js";
 import MyFooter from "./myFooter.js";
 import './upload.css';
 
-import firebase from "firebase";
-import { uploadSchedule } from  '../firestoreDB.js';
+import db from '../databaseConnection'; 
+import { uploadSchedule } from  '../firestoreFunctions.js';
 import CreateClass from './createClass.js'
 import {majorNames, class_names} from './classNames.js'
 
-
-const firebaseConfig = {
-    apiKey: "AIzaSyB-ZOFGWh1RypwbK1I_Tz6Pw0S073k16zU",
-    authDomain: "schedule-buddy-fc6c5.firebaseapp.com",
-    databaseURL: "https://schedule-buddy-fc6c5.firebaseio.com",
-    projectId: "schedule-buddy-fc6c5",
-    storageBucket: "schedule-buddy-fc6c5.appspot.com",
-    messagingSenderId: "701626130578",
-    appId: "1:701626130578:web:c68e333703087b6d1d064b"
-};
-
-firebase.initializeApp(firebaseConfig); 
-const db = firebase.firestore();
 
 let tempClasses = [];
 
