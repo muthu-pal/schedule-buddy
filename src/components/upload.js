@@ -74,7 +74,6 @@ export default class Form extends React.Component {
     }
 
 
-
     submitQuarter = () => {
         uploadSchedule(this.state.quarter, this.state.year, 
             "major", [], this.state.rating, this.state.description, db);

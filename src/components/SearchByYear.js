@@ -11,15 +11,14 @@ import './SearchByClass.css'
 import db from '../databaseConnection'; 
 import { getRecommendedClasses} from '../firestoreFunctions'; 
 
-
-class SearchByYear extends React.Component {
+class SearchByYearMajor extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            major: "",
             year: "",
+            major: "",
         }
     }
 
@@ -67,4 +66,4 @@ class SearchByYear extends React.Component {
     }
 }
 
-export default SearchByYear
+export default SearchByYearMajor
