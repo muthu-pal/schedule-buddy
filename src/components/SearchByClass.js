@@ -17,13 +17,19 @@ class SearchByClass extends React.Component {
         super(props);
 
         this.state = {
-            classnames: "",
+            schedules: [], //array of data 
+            classNames: "", 
+            showInput: true,
         }
     }
 
     handleRequest = () => {
-        let classnames = this.state.classnames.split(','); 
-        getSchedule(classnames, db).then(console.log); 
+        let classNames = this.state.classNames.split(','); 
+        getSchedule(classNames, db).then(result =>
+            this.setState({
+                "schedules": result,
+                "showInput": false,    
+            })); 
     }
 
     myChangeHandler = (event) => {
@@ -35,33 +41,49 @@ class SearchByClass extends React.Component {
     
     render() {
 
-        return (
+        if(this.state.showInput) {
+
+            return (
+                <div>
+                    <MyHeader />
+                    {/* middle section starts here */}
+                                <div class="form">
+                            {/* <div class='form-row'>
+                            <label for='major'>major: &ensp;&thinsp;&thinsp;&thinsp;&thinsp;</label>
+                            <input id='major-name' name='major-name' type='text'/>
+                            </div>*/}
+                            <div class='form-row'>
+                            <label for='classes'>classes: &ensp;&thinsp;</label>
+                            <input id='classNames' name='classNames' type='text' onChange={this.myChangeHandler}/>
+                            </div>
+                            <p class="caption">* please use official subject names and separate <br /> &ensp;&ensp;&ensp;classes by commas, e.g. "com sci 111, com sci 180"</p>
+                            <div class="submit-button">
+                                <button onClick={this.handleRequest} > submit </button>
+                            </div>
+                            
+                        </div>
+                    {/* middle section ends here */}
+                    <MyFooter />
+                
+            
+            
+                </div>
+            );
+        }
+
+        else {
+            return (
             <div>
                 <MyHeader />
-                {/* middle section starts here */}
-                            <div class="form">
-                        {/* <div class='form-row'>
-                        <label for='major'>major: &ensp;&thinsp;&thinsp;&thinsp;&thinsp;</label>
-                        <input id='major-name' name='major-name' type='text'/>
-                        </div>*/}
-                        <div class='form-row'>
-                        <label for='classes'>classes: &ensp;&thinsp;</label>
-                        <input id='classnames' name='classnames' type='text' onChange={this.myChangeHandler}/>
-                        </div>
-                        <p class="caption">* please use official subject names and separate <br /> &ensp;&ensp;&ensp;classes by commas, e.g. "com sci 111, com sci 180"</p>
-                        <div class="submit-button">
-                            <button onClick={this.handleRequest} > submit </button>
-                        </div>
-                        
-                    </div>
-                {/* middle section ends here */}
+                <div class="form">
+                {this.state.schedules[0].classnames}
+                </div>
+                
                 <MyFooter />
-            
-        
-        
             </div>
-        );
+            );
+        }
     }
 }
 
-export default SearchByClass
+export default SearchByClass 

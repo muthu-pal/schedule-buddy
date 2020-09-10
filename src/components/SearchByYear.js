@@ -19,11 +19,19 @@ class SearchByYearMajor extends React.Component {
         this.state = {
             year: "",
             major: "",
+            showInput: true,
+            classNames: [],
+            classCounts: [],
         }
     }
 
     handleRequest = () => {
-        getRecommendedClasses(this.state.year, this.state.major, db).then(console.log); 
+        getRecommendedClasses(this.state.year, this.state.major, db).then(cls =>
+            this.setState({
+                "classNames": Array.from(cls.keys()),
+                "classCounts": Array.from(cls.values()),
+                "showInput": false,    
+            })); 
     }
 
     myChangeHandler = (event) => {
@@ -33,36 +41,51 @@ class SearchByYearMajor extends React.Component {
     }
 
     render() {
-        return (
-        <div>
-          
-          
-            <MyHeader />
-            {/* middle section starts here */}
-                            <div class="form">
-                    <div class='form-row'>
-                    <label for='major'>major: &ensp;&thinsp;&thinsp;&thinsp;&thinsp;</label>
-                    <input id='major' name='major' type='text' onChange={this.myChangeHandler}/>
+        if(this.state.showInput) {
+
+            return (
+            <div>
+        
+                <MyHeader />
+                {/* middle section starts here */}
+                                <div class="form">
+                        <div class='form-row'>
+                        <label for='major'>major: &ensp;&thinsp;&thinsp;&thinsp;&thinsp;</label>
+                        <input id='major' name='major' type='text' onChange={this.myChangeHandler}/>
+                        </div>
+                        <div class='year-dropdown'>
+                        <label for='year'>&ensp;year:&ensp;&ensp;&ensp;&ensp;&thinsp;</label>
+                        <select class='year' name='year' onChange={this.myChangeHandler}>
+                            <option value='empty'></option>
+                            <option value='freshman'>1st</option>
+                            <option value='2nd'>2nd</option>
+                            <option value='3rd'>3rd</option>
+                            <option value='4th'>4th</option>
+                            <option value='other'>other</option>
+                        </select>
+                        </div>
+                        <div class="submit-button">
+                        <button onClick={this.handleRequest} > submit </button>
+                        </div>
                     </div>
-                    <div class='year-dropdown'>
-                    <label for='year'>&ensp;year:&ensp;&ensp;&ensp;&ensp;&thinsp;</label>
-                    <select class='year' name='year' onChange={this.myChangeHandler}>
-                        <option value='empty'></option>
-                        <option value='1st'>1st</option>
-                        <option value='2nd'>2nd</option>
-                        <option value='3rd'>3rd</option>
-                        <option value='4th'>4th</option>
-                        <option value='other'>other</option>
-                    </select>
-                    </div>
-                    <div class="submit-button">
-                    <button onClick={this.handleRequest} > submit </button>
-                    </div>
+                {/* middle section ends here */}
+                <MyFooter />
+            </div>
+            );
+        } 
+        else {
+            return (
+            <div>
+                <MyHeader />
+                <div class="form">
+                {this.state.classNames}
+                {this.state.classCounts}
                 </div>
-             {/* middle section ends here */}
-            <MyFooter />
-        </div>
-      );
+                
+                <MyFooter />
+            </div>
+            );
+        }
     }
 }
 
